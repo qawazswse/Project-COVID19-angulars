@@ -1,0 +1,107 @@
+<!--
+  Revision of class registration extended to transformation (|)
+  #name *ngIf [ngClass]
+-->
+<div *ngIf="!signed&&!isIn">
+    <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)" [mustMatch]="['password', 'confirmPassword']"
+    class="LoginNSignup">
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="modelSignUp.userName" #name="ngModel"
+                       [ngClass]="{ 'is-invalid': myForm.submitted && name.invalid }" required>
+                <div *ngIf="myForm.submitted && name.invalid" class="invalid-feedback">
+                    <p *ngIf="name.errors.required">Name is required</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="modelSignUp.email" #email="ngModel"
+                       [ngClass]="{ 'is-invalid': myForm.submitted && email.invalid }" email required>
+                <div *ngIf="myForm.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">Email is required</div>
+                    <div *ngIf="email.errors.email">Must be a valid email address</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="modelSignUp.password" #password="ngModel"
+                       [ngClass]="{ 'is-invalid': myForm.submitted && password.invalid }" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       required>
+                <div *ngIf="myForm.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.invalid">Must contain at least one number and one uppercase and lowercase letter, and at
+                        least 8 or more characters</div>
+                    <div *ngIf="password.errors.matchValueError">Confirm Password & Password must be same.</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" class="form-control" [(ngModel)]="modelSignUp.confirmPassword"
+                       #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': myForm.submitted && confirmPassword.invalid }" required>
+                <div *ngIf="myForm.submitted && confirmPassword.invalid" class="invalid-feedback">
+                    <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="submit">SIGN UP</button>
+        </div>
+    </form>
+    <p>
+      <button (click)="googleLogIn()" class="googleLogIn">CONTINUE WITH GOOGLE</button>
+    </p>
+    <p>Already have an account?
+        <button (click)="onGoToSignUp()" class="switchForm">Go To Login</button>
+    </p>
+</div>
+<div *ngIf="signed&&!isIn">
+    <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)" class="LoginNSignup">
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>User Name</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="modelLogin.userName" #name="ngModel"
+                       [ngClass]="{ 'is-invalid': myForm.submitted && name.invalid }" required>
+                <div *ngIf="myForm.submitted && name.invalid" class="invalid-feedback">
+                    <p *ngIf="name.errors.required">Name is required</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="modelLogin.password" #password="ngModel"
+                       required>
+                <div *ngIf="myForm.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="submit">LOGIN</button>
+        </div>
+    </form>
+    <p>
+      <button (click)="googleLogIn()" class="googleLogIn">CONTINUE WITH GOOGLE</button>
+    </p>
+    <p>Don't have an account?
+        <button (click)="onGoToSignUp()" class="switchForm">Go To Sign Up</button>
+    </p>
+</div>
+
+<div *ngIf="isIn">
+  <h1>Welcome, {{auth.isLoggedIn() ? auth.getUserName() : userName}}!</h1>
+  <button class="submit" [routerLink]="['/table']">go to first page</button>
+  <p>you are not {{auth.isLoggedIn() ? auth.getUserName() : userName}}?
+    <button class="switchForm" (click)="logOut()">LOGOUT</button>
+  </p>
+</div>

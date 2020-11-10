@@ -1,0 +1,77 @@
+<div style="text-align:center;" [style.display]="'block'">
+    <p class="h3" style="font-family: Times, serif;">Tables of Each State</p>
+    <br>
+
+    <form>
+        <div class="form-group row mx-auto" style="width: 70%;">
+            <div class="col"> Data Type
+                <select class="form-control" [(ngModel)]="dataType" name="dataType">
+                    <option value="Death"> Death </option>
+                    <option value="Positive"> Positive Case </option>
+                    <option value="Recovery"> Recovery </option>
+                </select>
+            </div>
+            <div class="col"> Sort Method
+                <select class="form-control" [(ngModel)]="sortMethod" name="sortMethod">
+                    <option value="Highest"> Highest </option>
+                    <option value="Lowest"> Lowest </option>
+                </select>
+            </div>
+            <div class="col">Number of selections
+                <input class="form-control" id="numberOfSelect" type="number" [(ngModel)]="numberOfSelect" min="1"  max="5"
+                    name="numberOfSelect" >
+            </div>
+        </div>
+    </form>
+    <br>
+    <button type="button" class="btn btn-info btn-circle btn-xl" (click) = "SearchClick()"> Search </button>
+
+
+    <br>
+    <hr>
+    <div></div>
+    <hr>
+
+    <br>
+    <br>
+
+    <!-- Table & Data Seclet -->
+
+    <table border="0" style=" margin-left: auto; margin-right: auto; width:80%">
+        <thead>
+            <tr>
+                <th>States</th>
+                <th>Total positieve cases</th>
+                <th>Total death cases</th>
+                <th>Total recoved cases</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Illinois </td>
+                <td>10086</td>
+                <td>1900</td>
+                <td>1500</td>
+            </tr>
+
+            <tr>
+                <td>California </td>
+                <td>12000</td>
+                <td>1000</td>
+                <td>3600</td>
+            </tr>
+            <tr>
+                <td>Texas </td>
+                <td>11000</td>
+                <td>1000</td>
+                <td>1800</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <input id="dateOfData" type="date" [(ngModel)]="dateOfData" name="dateOfData">
+    <button type="button" class="btn btn-info btn-circle btn-xl" > Update </button>
+</div>

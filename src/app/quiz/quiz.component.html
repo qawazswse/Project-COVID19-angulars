@@ -1,0 +1,178 @@
+<!--
+  Revision of class registration extended to transformation (|)
+  #name *ngIf [ngClass]
+-->
+<form #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)" style="width: 80%; height: 120%; margin-left: 10%; ">
+  <div class="form-col">
+    <div class="form-group">
+      <label>{{Question_sub[0]}}</label>
+      <select class="form-control" name="Question1" [(ngModel)]="model.question1" >
+        <option *ngFor="let question1 of Question1" [value]="question1">
+          {{question1}}
+        </option>
+      </select>
+      <div *ngIf="is_c_1 == false"  [(ngModel)]="is_c_1">
+          <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+      </div>
+      <div *ngIf="is_c_1 == true"  [(ngModel)]="is_c_1">
+        <p style = "color: green;" >Correct Answer!!!</p>
+    </div>
+    </div>
+    <br/>
+    <div class="form-group">
+      <label>{{Question_sub[1]}}</label>
+      <select class="form-control" name="Question2" [(ngModel)]="model.question2">
+        <option *ngFor="let question2 of Question2" [value]="question2">
+          {{question2}}
+        </option>
+      </select>
+      <div *ngIf="is_c_2 == false"  [(ngModel)]="is_c_2">
+        <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+    </div>
+    <div *ngIf="is_c_2 == true"  [(ngModel)]="is_c_2">
+      <p style = "color: green;">Correct Answer!!!</p>
+  </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <label>{{Question_sub[2]}}</label>
+    <select class="form-control" name="Question3" [(ngModel)]="model.question3">
+      <option *ngFor="let question3 of Question3" [value]="question3">
+        {{question3}}
+      </option>
+    </select>
+    <div *ngIf="is_c_3 == false"  [(ngModel)]="is_c_3">
+      <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+  </div>
+  <div *ngIf="is_c_3 == true"  [(ngModel)]="is_c_3">
+    <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[3]}}</label>
+  <select class="form-control" name="Question4" [(ngModel)]="model.question4">
+    <option *ngFor="let question4 of Question4" [value]="question4">
+      {{question4}}
+    </option>
+  </select>
+  <div *ngIf="is_c_4 == false"  [(ngModel)]="is_c_4">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_4 == true"  [(ngModel)]="is_c_4">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[4]}}</label>
+  <select class="form-control" name="Question5" [(ngModel)]="model.question5">
+    <option *ngFor="let question5 of Question5" [value]="question5">
+      {{question5}}
+    </option>
+  </select>
+  <div *ngIf="is_c_5 == false"  [(ngModel)]="is_c_5">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_5 == true"  [(ngModel)]="is_c_5">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[5]}}</label>
+  <select class="form-control" name="Question6" [(ngModel)]="model.question6">
+    <option *ngFor="let question6 of Question6" [value]="question6">
+      {{question6}}
+    </option>
+  </select>
+  <div *ngIf="is_c_6 == false"  [(ngModel)]="is_c_6">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_6 == true"  [(ngModel)]="is_c_6">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[6]}}</label>
+  <select class="form-control" name="Question3" [(ngModel)]="model.question7">
+    <option *ngFor="let question7 of Question7" [value]="question7">
+      {{question7}}
+    </option>
+  </select>
+  <div *ngIf="is_c_7 == false"  [(ngModel)]="is_c_7">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_7 == true"  [(ngModel)]="is_c_7">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[7]}}</label>
+  <select class="form-control" name="Question8" [(ngModel)]="model.question8">
+    <option *ngFor="let question8 of Question8" [value]="question8">
+      {{question8}}
+    </option>
+  </select>
+  <div *ngIf="is_c_8 == false"  [(ngModel)]="is_c_8">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_8 == true"  [(ngModel)]="is_c_8">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[8]}}</label>
+  <select class="form-control" name="Question9" [(ngModel)]="model.question9">
+    <option *ngFor="let question9 of Question9" [value]="question9">
+      {{question9}}
+    </option>
+  </select>
+  <div *ngIf="is_c_9 == false"  [(ngModel)]="is_c_9">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_9 == true"  [(ngModel)]="is_c_9">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+<div class="form-group">
+  <label>{{Question_sub[9]}}</label>
+  <select class="form-control" name="Question10" [(ngModel)]="model.question10">
+    <option *ngFor="let question10 of Question10" [value]="question10">
+      {{question10}}
+    </option>
+  </select>
+  <div *ngIf="is_c_10 == false"  [(ngModel)]="is_c_10">
+    <p style = "color: red;">Wrong Answer!!! Try Again!!!</p>
+</div>
+<div *ngIf="is_c_10 == true"  [(ngModel)]="is_c_10">
+  <p style = "color: green;">Correct Answer!!!</p>
+</div>
+</div>
+<br/>
+
+
+  </div>
+
+
+  <div class="form-row">
+
+
+
+    <div class="form-group">
+      {{model.regdate | date | uppercase}}
+    </div>
+    <div class="form-group">
+      {{ model.regdate | date:"MM/dd/yy"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-block" style="width: 50%; margin: auto;">Submit</button>
+
+  </div>
+
+</form>

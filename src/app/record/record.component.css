@@ -1,0 +1,29 @@
+
+div.divClass1{
+  text-align: center;
+  color: #9500ff;
+}
+button.submit{
+  width: 100px;
+  background-color: deepskyblue;
+
+}
+.center-block1{
+  width:700px;
+  text-align: center;
+}
+.center-block2{
+  width:700px;
+  text-align: center;
+}
+.center-block4{
+  width:700px;
+  text-align: center;
+}
+.center-block3{
+  width:700px;
+  height:80px;
+}
+.cabin {
+  background-color: green;
+}
